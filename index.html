@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<title>CH@-SPL@SH v3</title>
+<title>CH@-SPL@SH Mile 3.1</title>
 <style>
 :root{--bg:#030611;--ink:#f1fffb;--muted:rgba(241,255,251,.62);--line:rgba(111,255,225,.22);--line2:rgba(190,95,255,.25);--aqua:#66ffd8;--cyan:#3bddff;--violet:#b85cff;--pink:#ff5fb7;--bad:#ff5d86;--good:#6dffb2;--glass:rgba(8,14,29,.78)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 body{background:radial-gradient(circle at 18% 4%,rgba(102,255,216,.20),transparent 31%),radial-gradient(circle at 92% 15%,rgba(184,92,255,.20),transparent 35%),radial-gradient(circle at 50% 100%,rgba(59,221,255,.14),transparent 46%),linear-gradient(180deg,#050818,#02040b 72%)}
-button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.hidden{display:none!important}
 .bgRipple{position:fixed;inset:-20%;pointer-events:none;opacity:.55;background:repeating-radial-gradient(circle at 50% 48%,transparent 0 22px,rgba(102,255,216,.035) 23px 24px),repeating-radial-gradient(circle at 65% 60%,transparent 0 35px,rgba(184,92,255,.03) 36px 37px);animation:floatBg 16s ease-in-out infinite alternate}
 @keyframes floatBg{from{transform:translate3d(-2%,1%,0) scale(1)}to{transform:translate3d(2%,-1%,0) scale(1.03)}}
 #app{height:100%;padding:env(safe-area-inset-top) 11px env(safe-area-inset-bottom);display:flex;flex-direction:column;gap:10px;position:relative;z-index:1}
@@ -20,12 +20,13 @@ button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!im
 .statusDot{width:9px;height:9px;border-radius:999px;background:var(--bad);display:inline-block;margin-right:6px;box-shadow:0 0 14px currentColor}.statusDot.live{background:var(--good)}
 .primary{border:0;border-radius:18px;padding:14px 13px;color:#03110f;font-weight:1000;font-size:14px;letter-spacing:.06em;background:linear-gradient(135deg,var(--aqua),var(--cyan) 48%,#d9a4ff)}.danger{background:linear-gradient(135deg,var(--bad),#ff9ac0)}
 .note,.who{font-size:12px;color:var(--muted);line-height:1.35}.err{color:var(--bad)}.good{color:var(--good)}
-.field,.textField{width:100%;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--ink);border-radius:18px;padding:15px 14px;outline:none;font-size:16px}.field{text-transform:uppercase;font-size:18px;font-weight:800;letter-spacing:.13em}.field.pin{text-transform:none;letter-spacing:.32em}textarea.textField{height:86px;resize:none}
-.screen{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;position:relative}.scroll{overflow-y:auto;overscroll-behavior:contain;padding:10px;min-height:0;flex:1}
-#shore{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:linear-gradient(180deg,#02040b,#050818);transition:.55s}#shore.done{opacity:0;pointer-events:none;transform:translateY(-10px)}.shoreBox{width:min(420px,90vw);padding:24px}.shoreTitle{font-weight:1000;font-size:25px;letter-spacing:.08em;margin-bottom:16px}.shoreText{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:rgba(241,255,251,.68);font-size:18px;line-height:1.6}.waveLine{letter-spacing:.08em;color:var(--aqua);animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.35}}.ring{width:120px;height:120px;border-radius:999px;border:1px solid var(--line);margin:18px auto 0;position:relative;animation:ripple 1.8s infinite}.ring:before,.ring:after{content:"";position:absolute;inset:18px;border-radius:999px;border:1px solid var(--line2);animation:ripple 1.8s infinite .25s}.ring:after{inset:38px;border-color:rgba(102,255,216,.38);animation-delay:.5s}@keyframes ripple{0%{transform:scale(.82);opacity:.95}100%{transform:scale(1.35);opacity:.05}}
+.field,.textField,select.textField{width:100%;border:1px solid var(--line);background:rgba(0,0,0,.25);color:var(--ink);border-radius:18px;padding:15px 14px;outline:none;font-size:16px}.field{text-transform:uppercase;font-size:18px;font-weight:800;letter-spacing:.13em}.field.pin{text-transform:none;letter-spacing:.32em}textarea.textField{height:86px;resize:none}
+.screen{flex:1;min-height:0;display:flex;flex-direction:column;gap:10px;position:relative;animation:screenIn .2s ease-out}.scroll{overflow-y:auto;overscroll-behavior:contain;padding:10px;min-height:0;flex:1}
+@keyframes screenIn{from{opacity:.3;transform:translateY(8px) scale(.992)}to{opacity:1;transform:none}}
+#shore{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:linear-gradient(180deg,#02040b,#050818);transition:.55s}#shore.done{opacity:0;pointer-events:none;transform:translateY(-10px)}.shoreBox{width:min(420px,90vw);padding:24px}.shoreTitle{font-weight:1000;font-size:25px;letter-spacing:.08em;margin-bottom:16px}.shoreText{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:rgba(241,255,251,.68);font-size:17px;line-height:1.65}.waveLine{letter-spacing:.08em;color:var(--aqua);animation:pulse 1.5s infinite}@keyframes pulse{50%{opacity:.35}}.ring{width:120px;height:120px;border-radius:999px;border:1px solid var(--line);margin:18px auto 0;position:relative;animation:ripple 1.8s infinite}.ring:before,.ring:after{content:"";position:absolute;inset:18px;border-radius:999px;border:1px solid var(--line2);animation:ripple 1.8s infinite .25s}.ring:after{inset:38px;border-color:rgba(102,255,216,.38);animation-delay:.5s}@keyframes ripple{0%{transform:scale(.82);opacity:.95}100%{transform:scale(1.35);opacity:.05}}
 .login{flex:1;display:grid;place-items:center;padding-bottom:40px}.loginBox{width:min(420px,100%);padding:19px}.loginTitle{font-size:28px;font-weight:1000;letter-spacing:.04em;margin:0 0 5px}.loginTag{color:var(--muted);margin:0 0 18px;font-size:13px}.formGrid{display:grid;gap:10px}.label{font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
-.homeHero{padding:20px}.homeTitle{font-size:34px;font-weight:1000;line-height:1;margin:6px 0;background:linear-gradient(90deg,#fff,var(--aqua),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.homeTag{font-size:23px;line-height:1.2;color:rgba(241,255,251,.78);font-weight:800;margin:8px 0 18px}.statBig{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--muted);padding:12px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}.homeGrid{display:grid;gap:10px;margin-top:10px}.homeBtn{border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--ink);border-radius:22px;padding:16px;text-align:left;display:flex;align-items:center;justify-content:space-between;font-weight:950;font-size:17px}.homeBtn small{display:block;color:var(--muted);font-weight:700;font-size:11px;margin-top:4px}
-.activity{padding:14px;margin-top:10px}.sectionTitle{font-size:12px;font-weight:1000;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;margin:0 0 9px}.activityItem,.friendRow,.echoRow,.requestRow{display:flex;align-items:center;gap:10px;padding:10px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);margin-top:7px}.avatar{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--aqua),var(--violet));color:#061014;font-weight:1000;flex:0 0 auto}.aInfo{flex:1;min-width:0}.aTitle{font-size:13px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.aSub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.homeHero{padding:20px;position:relative;overflow:hidden}.homeHero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 8%,rgba(102,255,216,.16),transparent 34%),radial-gradient(circle at 10% 90%,rgba(184,92,255,.14),transparent 42%);pointer-events:none}.homeHero>*{position:relative}.homeTitle{font-size:34px;font-weight:1000;line-height:1;margin:6px 0;background:linear-gradient(90deg,#fff,var(--aqua),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.homeTag{font-size:23px;line-height:1.2;color:rgba(241,255,251,.78);font-weight:800;margin:8px 0 18px}.statBig{display:flex;align-items:center;gap:10px;font-size:16px;color:var(--muted);padding:12px 0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}.homeGrid{display:grid;gap:10px;margin-top:10px}.homeBtn{border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--ink);border-radius:22px;padding:16px;text-align:left;display:flex;align-items:center;justify-content:space-between;font-weight:950;font-size:17px}.homeBtn small{display:block;color:var(--muted);font-weight:700;font-size:11px;margin-top:4px}
+.activity{padding:14px;margin-top:10px}.sectionTitle{font-size:12px;font-weight:1000;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;margin:0 0 9px}.activityItem,.friendRow,.echoRow,.requestRow{display:flex;align-items:center;gap:10px;padding:10px;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07);margin-top:7px}.activityItem:active,.friendRow:active,.echoRow:active{transform:scale(.985)}.avatar{width:34px;height:34px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--aqua),var(--violet));color:#061014;font-weight:1000;flex:0 0 auto}.aInfo{flex:1;min-width:0}.aTitle{font-size:13px;font-weight:900;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.aSub{font-size:11px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.badge{font-size:10px;font-weight:1000;border:1px solid rgba(102,255,216,.24);background:rgba(102,255,216,.12);color:var(--aqua);padding:4px 7px;border-radius:999px}
 .panelHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px;border-bottom:1px solid rgba(255,255,255,.07)}.panelTitle{font-weight:1000;letter-spacing:.05em}
 .chatCard{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}#messages,#privateMessages{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:12px 10px 18px;display:flex;flex-direction:column;gap:9px}
 .msg{max-width:86%;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.07);border-radius:20px;padding:9px 10px 8px;box-shadow:0 10px 25px rgba(0,0,0,.18);animation:rise .16s ease-out;position:relative}.msg:before{content:"";position:absolute;inset:-2px;border-radius:22px;border:1px solid rgba(102,255,216,.09);opacity:0;animation:dropRipple .7s ease-out}@keyframes dropRipple{0%{opacity:.8;transform:scale(.96)}100%{opacity:0;transform:scale(1.08)}}.msg.me{align-self:flex-end;background:linear-gradient(135deg,rgba(102,255,216,.20),rgba(59,221,255,.12),rgba(184,92,255,.10));border-color:rgba(102,255,216,.24)}.msg.other{align-self:flex-start}.msg.sys{align-self:center;text-align:center;max-width:96%;font-size:12px;color:var(--muted);background:rgba(255,255,255,.04);border-style:dashed}
@@ -33,47 +34,46 @@ button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!im
 .replyBar{display:none;margin:0 10px 8px;border:1px solid var(--line2);background:rgba(184,92,255,.09);border-radius:16px;padding:8px 10px;align-items:center;gap:8px}.replyBar.on{display:flex}.replyText{flex:1;min-width:0;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.xBtn{border:0;background:transparent;color:var(--ink);font-weight:1000;font-size:18px}
 .composer{padding:10px;border-top:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:1fr auto;gap:8px}.msgInput{min-width:0;border:1px solid var(--line);background:rgba(0,0,0,.27);color:var(--ink);border-radius:18px;padding:14px;font-size:16px;outline:none}.sendBtn{border:0;border-radius:18px;color:#03110f;font-weight:1000;padding:0 16px;background:linear-gradient(135deg,var(--aqua),var(--cyan))}.cooldown{opacity:.5;pointer-events:none}
 .toast{position:absolute;left:50%;bottom:86px;transform:translateX(-50%);background:rgba(0,0,0,.72);border:1px solid var(--line);border-radius:999px;color:var(--ink);font-size:12px;padding:9px 12px;opacity:0;pointer-events:none;transition:.2s;z-index:20}.toast.on{opacity:1}
-.onlineDot{width:9px;height:9px;border-radius:999px;background:rgba(255,255,255,.22);flex:0 0 auto}.onlineDot.on{background:var(--good);box-shadow:0 0 13px var(--good)}.groupTitle{margin:18px 2px 6px;color:var(--muted);font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}
+.onlineDot{width:9px;height:9px;border-radius:999px;background:rgba(255,255,255,.22);flex:0 0 auto}.onlineDot.on{background:var(--good);box-shadow:0 0 13px var(--good);animation:onlinePulse 1.35s infinite}@keyframes onlinePulse{50%{box-shadow:0 0 22px var(--good);transform:scale(1.15)}}.groupTitle{margin:18px 2px 6px;color:var(--muted);font-size:11px;font-weight:1000;letter-spacing:.14em;text-transform:uppercase}
 .profileCard{padding:18px;position:relative;overflow:hidden}.profileCard:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(102,255,216,.18),transparent 35%),radial-gradient(circle at 10% 90%,rgba(184,92,255,.16),transparent 35%);pointer-events:none}.profileInner{position:relative}.profileTop{display:flex;align-items:center;gap:13px}.bigAvatar{width:72px;height:72px;border-radius:25px;display:grid;place-items:center;background:linear-gradient(135deg,var(--aqua),var(--violet));color:#061014;font-size:24px;font-weight:1000;box-shadow:0 0 28px rgba(102,255,216,.16)}.profileName{font-size:26px;font-weight:1000}.statusText{color:var(--good);font-size:12px;font-weight:900}.bioBox{margin-top:14px;padding:12px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.045);border-radius:18px;color:rgba(241,255,251,.78);font-size:13px;line-height:1.35}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.stat{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.045);border-radius:18px;padding:12px}.stat b{display:block;font-size:20px}.stat span{font-size:11px;color:var(--muted);font-weight:800}.profileActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
 .reactPop{position:absolute;z-index:30;display:none;gap:6px;padding:8px;border-radius:999px;border:1px solid var(--line);background:rgba(3,6,17,.92);backdrop-filter:blur(16px);box-shadow:0 16px 40px rgba(0,0,0,.34)}.reactPop.on{display:flex}.reactBtn{border:0;background:rgba(255,255,255,.08);border-radius:999px;width:34px;height:34px;font-size:18px}
 .modal{position:absolute;inset:0;z-index:25;background:rgba(0,0,0,.46);display:none;place-items:end center;padding:12px}.modal.on{display:grid}.sheet{width:100%;max-height:84%;overflow:auto;padding:14px}.settingsGrid{display:grid;gap:10px}.settingRow{padding:13px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.045);border-radius:18px;display:flex;justify-content:space-between;gap:10px;align-items:center}.toggle{width:48px;height:27px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.08);position:relative}.toggle:before{content:"";position:absolute;width:21px;height:21px;left:3px;top:2px;border-radius:999px;background:var(--muted);transition:.2s}.toggle.on:before{left:22px;background:var(--good)}
+.searchBox{margin-bottom:10px}.unread{background:rgba(255,95,183,.12);border-color:rgba(255,95,183,.25)}
 @media(max-width:380px){.brand h1{font-size:18px}.brand small{font-size:10px}.msg{max-width:91%}.homeTitle{font-size:30px}}
 </style>
 </head>
 <body>
 <div class="bgRipple"></div>
-<div id="shore"><div class="shoreBox card"><div class="shoreTitle">THE SHORE</div><div class="shoreText">CH@-SPL@SH<br>Drop In.<br>Ripple Out.<br><br><span class="waveLine">~~~~~~~~~~~~~~~</span><br>Connecting...<br><span class="waveLine">~~~~~~~~~~~~~~~</span><br>One ripple expands...<br>The @ glows...<br>Home slides upward.</div><div class="ring"></div></div></div>
+<div id="shore"><div class="shoreBox card"><div class="shoreTitle">THE SHORE</div><div class="shoreText">CH@-SPL@SH<br>Drop In.<br>Ripple Out.<br><br><span class="waveLine">~~~~~~~~~~~~~~~</span><br>Loading Waves...<br>Finding Friends...<br>Restoring Echoes...<br>Entering Home...</div><div class="ring"></div></div></div>
 <div id="app">
 <header class="top">
 <div class="logoWrap"><div class="logoMark"></div><div class="brand"><h1>CH@-SPL@SH</h1><small>drop in. ripple out.</small></div></div>
 <div class="topBtns"><button id="homeBtn" class="pillBtn hidden">HOME</button><button id="wavesBtn" class="pillBtn hidden"><span id="liveDot" class="statusDot"></span><span id="waveCount">0</span></button><button id="logoutBtn" class="pillBtn hidden">OUT</button></div>
 </header>
-<section id="login" class="login">
-<div class="loginBox card">
+<section id="login" class="login"><div class="loginBox card">
 <h2 class="loginTitle">CLAIM YOUR SPL@SH</h2>
 <p class="loginTag">One unique user, 1–6 letters. One 4-digit PIN. Same name returns to the same splashes.</p>
 <div class="formGrid">
 <div><div class="label">USER</div><input id="userInput" class="field" maxlength="6" placeholder="ADMIN" autocomplete="off"></div>
 <div><div class="label">PIN #</div><input id="pinInput" class="field pin" maxlength="4" placeholder="_ _ _ _" inputmode="numeric" autocomplete="off"></div>
 <button id="loginBtn" class="primary">ENTER THE SHORE</button>
-</div>
-<div id="loginNote" class="note">New name + PIN claims it. Returning name must use the same PIN.</div>
-</div>
-</section>
+</div><div id="loginNote" class="note">New name + PIN claims it. Returning name must use the same PIN.</div>
+</div></section>
 <section id="home" class="screen hidden"><div class="scroll">
 <div class="homeHero card">
-<div class="homeTitle">CH@-SPL@SH</div><div class="homeTag">Drop In.<br>Ripple Out.</div><div class="statBig">🌊 <b id="homeOnline">0 Making Waves</b></div>
+<div class="homeTitle">CH@-SPL@SH</div><div class="homeTag" id="greeting">Drop In.<br>Ripple Out.</div><div class="statBig">🌊 <b id="homeOnline">0 Making Waves</b></div>
 <div class="homeGrid">
 <button class="homeBtn" data-go="chat"><span>MAIN SPL@SH<small>join the live room</small></span><span>→</span></button>
 <button class="homeBtn" data-go="friends"><span>Friends<small>favorites, waves, requests</small></span><span>→</span></button>
 <button class="homeBtn" data-go="echoes"><span>Recent Echoes<small>private conversations</small></span><span>→</span></button>
+<button class="homeBtn" data-go="search"><span>Search<small>find splashers and splashes</small></span><span>→</span></button>
 <button class="homeBtn" data-go="profile"><span>My Profile<small>your splash card</small></span><span>→</span></button>
 <button class="homeBtn" data-go="settings"><span>Settings<small>sound, style, privacy</small></span><span>→</span></button>
 </div></div>
 <div class="activity card"><div class="sectionTitle">Live Activity</div><div id="activityList"></div></div>
 </div></section>
 <section id="chat" class="screen hidden"><main class="chatCard card">
-<div class="panelHead"><button class="backBtn" data-go="home">← HOME</button><div><div class="panelTitle">MAIN SPL@SH</div><div class="who"><span id="signedName">------</span> is making waves</div></div><button class="backBtn" id="profileMiniBtn">CARD</button></div>
+<div class="panelHead"><button class="backBtn" data-go="home">← HOME</button><div><div class="panelTitle">MAIN SPL@SH</div><div class="who"><span id="signedName">------</span> is making waves</div><div class="who" id="typingLine"></div></div><button class="backBtn" id="profileMiniBtn">CARD</button></div>
 <div id="messages"></div>
 <div id="replyBar" class="replyBar"><div class="replyText" id="replyText"></div><button id="cancelReply" class="xBtn">×</button></div>
 <form id="composer" class="composer"><input id="msgInput" class="msgInput" maxlength="700" autocomplete="off" placeholder="send a splash..."><button id="sendBtn" class="sendBtn" type="submit">SEND</button></form>
@@ -91,6 +91,10 @@ button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!im
 <div id="privateMessages"></div>
 <form id="privateComposer" class="composer"><input id="privateInput" class="msgInput" maxlength="700" autocomplete="off" placeholder="send a private echo..."><button id="privateSend" class="sendBtn" type="submit">SEND</button></form>
 </main></section>
+<section id="search" class="screen hidden">
+<div class="card panelHead"><button class="backBtn" data-go="home">← HOME</button><div><div class="panelTitle">SEARCH</div><div class="who">Find SPL@SHERS and splashes</div></div><button class="backBtn" id="clearSearchBtn">CLEAR</button></div>
+<div class="scroll card"><input id="searchInput" class="textField searchBox" placeholder="search names, bios, splashes..."><div id="searchResults"></div></div>
+</section>
 <section id="profile" class="screen hidden">
 <div class="card panelHead"><button class="backBtn" data-go="home">← HOME</button><div><div class="panelTitle">MY PROFILE</div><div class="who">Your Splash Card</div></div><button class="backBtn" id="editProfileBtn">EDIT</button></div>
 <div class="scroll"><div id="myProfileCard" class="profileCard card"></div></div>
@@ -100,35 +104,30 @@ button,input,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!im
 <div class="scroll card"><div class="settingsGrid">
 <div class="settingRow"><div><b>Sounds</b><div class="who">Soft drops and ripples</div></div><div id="soundToggle" class="toggle"></div></div>
 <div class="settingRow"><div><b>Animations</b><div class="who">Message ripples and screen slides</div></div><div id="animToggle" class="toggle on"></div></div>
-<div class="settingRow"><div><b>Status</b><div class="who">Making Waves</div></div><span>🌊</span></div>
-<div class="settingRow"><div><b>Version</b><div class="who">CH@-SPL@SH v3 Milestone 2</div></div><span>v3</span></div>
+<div class="settingRow"><div><b>Reduce Motion</b><div class="who">Keep it calmer</div></div><div id="motionToggle" class="toggle"></div></div>
+<div class="settingRow"><div><b>Status</b><div class="who">Edit from your Splash Card</div></div><span>🌊</span></div>
+<div class="settingRow"><div><b>Version</b><div class="who">CH@-SPL@SH Mile 3.1</div></div><span>v3.1</span></div>
 </div></div>
 </section>
 <div id="modal" class="modal"><div class="sheet card"><div class="panelHead" style="padding:0 0 12px;border-bottom:0"><div class="panelTitle" id="modalTitle">SPL@SH CARD</div><button class="backBtn" id="closeModal">CLOSE</button></div><div id="modalBody"></div></div></div>
 </div>
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import {
-  getFirestore,doc,collection,query,where,orderBy,limit,onSnapshot,serverTimestamp,
-  runTransaction,addDoc,setDoc,updateDoc,deleteDoc,getDoc
-} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import {getFirestore,doc,collection,query,where,orderBy,limit,onSnapshot,serverTimestamp,runTransaction,addDoc,setDoc,updateDoc,deleteDoc,getDoc} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 const firebaseConfig={apiKey:"AIzaSyCpTKAf16xnwdKZZzdBNiLLpXpckYvxWrQ",authDomain:"chatdemo-v1.firebaseapp.com",projectId:"chatdemo-v1",storageBucket:"chatdemo-v1.firebasestorage.app",messagingSenderId:"847054956955",appId:"1:847054956955:web:a6bf9dc14a6b17edcc193e"};
 const app=initializeApp(firebaseConfig),db=getFirestore(app);
 const EMOJIS=["🔥","😂","❤️","👍","👀"],ONLINE_MS=45000,$=id=>document.getElementById(id);
 const els={
-shore:$("shore"),login:$("login"),home:$("home"),chat:$("chat"),friends:$("friends"),echoes:$("echoes"),private:$("private"),profile:$("profile"),settings:$("settings"),
-user:$("userInput"),pin:$("pinInput"),loginBtn:$("loginBtn"),loginNote:$("loginNote"),logout:$("logoutBtn"),homeBtn:$("homeBtn"),wavesBtn:$("wavesBtn"),waveCount:$("waveCount"),liveDot:$("liveDot"),homeOnline:$("homeOnline"),
-signed:$("signedName"),messages:$("messages"),form:$("composer"),msg:$("msgInput"),send:$("sendBtn"),replyBar:$("replyBar"),replyText:$("replyText"),cancelReply:$("cancelReply"),toast:$("toast"),reactPop:$("reactPop"),
+shore:$("shore"),login:$("login"),home:$("home"),chat:$("chat"),friends:$("friends"),echoes:$("echoes"),private:$("private"),search:$("search"),profile:$("profile"),settings:$("settings"),
+user:$("userInput"),pin:$("pinInput"),loginBtn:$("loginBtn"),loginNote:$("loginNote"),logout:$("logoutBtn"),homeBtn:$("homeBtn"),wavesBtn:$("wavesBtn"),waveCount:$("waveCount"),liveDot:$("liveDot"),homeOnline:$("homeOnline"),greeting:$("greeting"),
+signed:$("signedName"),typingLine:$("typingLine"),messages:$("messages"),form:$("composer"),msg:$("msgInput"),send:$("sendBtn"),replyBar:$("replyBar"),replyText:$("replyText"),cancelReply:$("cancelReply"),toast:$("toast"),reactPop:$("reactPop"),
 activityList:$("activityList"),friendsList:$("friendsList"),echoList:$("echoList"),myProfileCard:$("myProfileCard"),modal:$("modal"),modalTitle:$("modalTitle"),modalBody:$("modalBody"),closeModal:$("closeModal"),
 editProfileBtn:$("editProfileBtn"),profileMiniBtn:$("profileMiniBtn"),addFriendBtn:$("addFriendBtn"),newEchoBtn:$("newEchoBtn"),privateTitle:$("privateTitle"),privateSub:$("privateSub"),privateMessages:$("privateMessages"),privateComposer:$("privateComposer"),privateInput:$("privateInput"),privateCardBtn:$("privateCardBtn"),
-soundToggle:$("soundToggle"),animToggle:$("animToggle"),saveSettingsBtn:$("saveSettingsBtn")
+searchInput:$("searchInput"),searchResults:$("searchResults"),clearSearchBtn:$("clearSearchBtn"),
+soundToggle:$("soundToggle"),animToggle:$("animToggle"),motionToggle:$("motionToggle"),saveSettingsBtn:$("saveSettingsBtn")
 };
-const state={
-userKey:localStorage.cs_userKey||"",pin:localStorage.cs_pin||"",displayName:localStorage.cs_displayName||"",profile:null,
-profiles:{},friends:{},inReq:{},outReq:{},messagesData:[],echoPreviews:{},currentEcho:null,privateUnsub:null,
-unsubs:[],presenceTimer:null,reply:null,lastSend:0,burst:[],nearBottom:true,settings:{sound:false,animations:true}
-};
-const screens=["login","home","chat","friends","echoes","private","profile","settings"];
+const state={userKey:localStorage.cs_userKey||"",pin:localStorage.cs_pin||"",displayName:localStorage.cs_displayName||"",profile:null,profiles:{},friends:{},inReq:{},outReq:{},messagesData:[],echoPreviews:{},typing:{},currentEcho:null,privateUnsub:null,unsubs:[],presenceTimer:null,reply:null,lastSend:0,burst:[],nearBottom:true,settings:{sound:false,animations:true,reduceMotion:false}};
+const screens=["login","home","chat","friends","echoes","private","search","profile","settings"];
 const makeUserKey=v=>String(v||"").toLowerCase().replace(/[^a-z]/g,"").slice(0,6);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const initials=n=>String(n||"?").slice(0,2).toUpperCase();
@@ -138,15 +137,16 @@ const isOnline=p=>{const t=p?.lastSeen?.toDate?p.lastSeen.toDate().getTime():0;r
 const threadId=(a,b)=>[a,b].sort().join("_");
 const linkify=text=>esc(text).replace(/(https?:\/\/[^\s<]+|www\.[^\s<]+)/gi,raw=>`<a href="${raw.startsWith("www.")?"https://"+raw:raw}" target="_blank" rel="noopener noreferrer">${raw}</a>`);
 function toast(text){els.toast.textContent=text;els.toast.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>els.toast.classList.remove("on"),1700)}
+function haptic(n=8){try{navigator.vibrate&&navigator.vibrate(n)}catch{}}
 function showScreen(name){
   screens.forEach(s=>els[s]?.classList.toggle("hidden",s!==name));
   els.homeBtn.classList.toggle("hidden",name==="login"||!state.userKey);
   els.logout.classList.toggle("hidden",name==="login"||!state.userKey);
   els.wavesBtn.classList.toggle("hidden",name==="login"||!state.userKey);
-  if(name==="home")renderHome(); if(name==="friends")renderFriends(); if(name==="profile")renderMyProfile(); if(name==="echoes")renderEchoes();
+  if(name==="home")renderHome(); if(name==="friends")renderFriends(); if(name==="profile")renderMyProfile(); if(name==="echoes")renderEchoes(); if(name==="search")renderSearch();
 }
 function pulseSound(){if(!state.settings.sound)return;try{const a=new(window.AudioContext||window.webkitAudioContext)(),o=a.createOscillator(),g=a.createGain();o.frequency.value=420;g.gain.value=.025;o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+.045)}catch{}}
-setTimeout(()=>els.shore.classList.add("done"),1500);
+setTimeout(()=>els.shore.classList.add("done"),1700);
 async function claimOrLogin(){
   const key=makeUserKey(els.user.value),pin=String(els.pin.value||"").replace(/\D/g,"").slice(0,4),display=key.toUpperCase();
   if(!/^[a-z]{1,6}$/.test(key)){els.loginNote.innerHTML=`<span class="err">USER must be 1–6 letters.</span>`;return}
@@ -156,279 +156,91 @@ async function claimOrLogin(){
     const ref=doc(db,"profiles",key);
     const result=await runTransaction(db,async tx=>{
       const snap=await tx.get(ref);
-      if(!snap.exists()){
-        tx.set(ref,{userKey:key,displayName:display,pin,createdAt:serverTimestamp(),lastSeen:serverTimestamp(),online:true,status:"Making Waves",bio:"New to the shore.",favoriteEmoji:"🌊",accent:"#66ffd8",messageCount:0,ripplesReceived:0,friendsCount:0,privateEchoCount:0});
-        return"claimed";
-      }
-      const data=snap.data();
-      if(String(data.pin)!==pin)throw new Error("Wrong PIN for that USER.");
-      tx.update(ref,{lastSeen:serverTimestamp(),online:true,status:data.status||"Making Waves"});
-      return"logged";
+      if(!snap.exists()){tx.set(ref,{userKey:key,displayName:display,pin,createdAt:serverTimestamp(),lastSeen:serverTimestamp(),online:true,status:"Making Waves",statusEmoji:"🌊",bio:"New to the shore.",favoriteEmoji:"🌊",accent:"#66ffd8",messageCount:0,ripplesReceived:0,friendsCount:0,privateEchoCount:0});return"claimed"}
+      const data=snap.data(); if(String(data.pin)!==pin)throw new Error("Wrong PIN for that USER.");
+      tx.update(ref,{lastSeen:serverTimestamp(),online:true,status:data.status||"Making Waves"}); return"logged";
     });
-    state.userKey=key;state.pin=pin;state.displayName=display;
-    localStorage.cs_userKey=key;localStorage.cs_pin=pin;localStorage.cs_displayName=display;
-    await enterApp(result);
+    state.userKey=key;state.pin=pin;state.displayName=display;localStorage.cs_userKey=key;localStorage.cs_pin=pin;localStorage.cs_displayName=display;await enterApp(result);
   }catch(err){els.loginNote.innerHTML=`<span class="err">${esc(err.message||"Could not enter.")}</span>`}
   finally{els.loginBtn.classList.remove("cooldown")}
 }
 async function enterApp(mode){
-  await updatePresence(true); await addSystemEvent(`${state.displayName} splashed in.`);
+  await updatePresence(true); await addActivity(`${state.displayName} splashed in.`,"system");
   state.unsubs.forEach(u=>u&&u()); state.unsubs=[]; if(state.presenceTimer)clearInterval(state.presenceTimer);
   state.presenceTimer=setInterval(()=>updatePresence(true).catch(()=>{}),18000);
-  watchProfiles(); watchMessages(); watchFriends(); watchRequests(); watchEchoPreviews();
-  toast(mode==="claimed"?"USER claimed.":"Welcome back."); showScreen("home");
+  watchProfiles();watchMessages();watchFriends();watchRequests();watchEchoPreviews();watchTyping();
+  toast(mode==="claimed"?"USER claimed.":"Welcome back."); haptic(12); showScreen("home");
 }
-async function updatePresence(online){
-  if(!state.userKey)return;
-  await setDoc(doc(db,"profiles",state.userKey),{userKey:state.userKey,displayName:state.displayName||state.userKey.toUpperCase(),online:!!online,lastSeen:serverTimestamp(),status:online?"Making Waves":"Drifting"},{merge:true});
-}
-async function addSystemEvent(text){await addDoc(collection(db,"announcements"),{type:"system",text,createdAt:serverTimestamp()}).catch(()=>{})}
-function watchProfiles(){
-  const q=query(collection(db,"profiles"),orderBy("displayName","asc"),limit(200));
-  state.unsubs.push(onSnapshot(q,snap=>{
-    const profiles={};snap.forEach(d=>profiles[d.id]=d.data());
-    state.profiles=profiles;state.profile=profiles[state.userKey]||null;
-    const online=Object.values(profiles).filter(isOnline).length;
-    els.waveCount.textContent=online;els.homeOnline.textContent=`${online} Making Waves`;els.liveDot.classList.toggle("live",online>0);
-    renderHome();renderFriends();renderMyProfile();renderEchoes();
-  }));
-}
-function watchMessages(){
-  const q=query(collection(db,"mainChat"),orderBy("createdAt","asc"),limit(150));
-  state.unsubs.push(onSnapshot(q,snap=>{
-    state.nearBottom=nearBottom(els.messages); state.messagesData=[]; els.messages.innerHTML="";
-    snap.forEach(d=>{const m={id:d.id,...d.data()};state.messagesData.push(m);els.messages.appendChild(renderMessage(m,false))});
-    if(state.nearBottom)scrollBottom(els.messages); renderHome();
-  },err=>{console.error(err);toast("Main SPL@SH blocked.")}));
-}
-function watchFriends(){
-  const q=query(collection(db,"profiles",state.userKey,"friends"),orderBy("createdAt","asc"),limit(200));
-  state.unsubs.push(onSnapshot(q,snap=>{const f={};snap.forEach(d=>f[d.id]=d.data());state.friends=f;renderFriends();renderHome();renderEchoes()}));
-}
-function watchRequests(){
-  const incoming=query(collection(db,"friendRequests"),where("to","==",state.userKey),limit(100));
-  const outgoing=query(collection(db,"friendRequests"),where("from","==",state.userKey),limit(100));
-  state.unsubs.push(onSnapshot(incoming,snap=>{const r={};snap.forEach(d=>r[d.id]=d.data());state.inReq=r;renderFriends();renderHome()}));
-  state.unsubs.push(onSnapshot(outgoing,snap=>{const r={};snap.forEach(d=>r[d.id]=d.data());state.outReq=r;renderFriends()}));
-}
-function watchEchoPreviews(){
-  const q=query(collection(db,"privateEchoes"),where("members","array-contains",state.userKey),limit(100));
-  state.unsubs.push(onSnapshot(q,snap=>{const e={};snap.forEach(d=>e[d.id]=d.data());state.echoPreviews=e;renderHome();renderEchoes()}));
-}
+async function updatePresence(online){if(!state.userKey)return;await setDoc(doc(db,"profiles",state.userKey),{userKey:state.userKey,displayName:state.displayName||state.userKey.toUpperCase(),online:!!online,lastSeen:serverTimestamp(),status:online?(state.profile?.status||"Making Waves"):"Drifting"},{merge:true})}
+async function addActivity(text,type="activity"){await addDoc(collection(db,"announcements"),{type,text,userKey:state.userKey||"",displayName:state.displayName||"",createdAt:serverTimestamp()}).catch(()=>{})}
+function watchProfiles(){const q=query(collection(db,"profiles"),orderBy("displayName","asc"),limit(200));state.unsubs.push(onSnapshot(q,snap=>{const profiles={};snap.forEach(d=>profiles[d.id]=d.data());state.profiles=profiles;state.profile=profiles[state.userKey]||null;const online=Object.values(profiles).filter(isOnline).length;els.waveCount.textContent=online;els.homeOnline.textContent=`${online} Making Waves`;els.liveDot.classList.toggle("live",online>0);renderHome();renderFriends();renderMyProfile();renderEchoes();renderSearch()}))}
+function watchMessages(){const q=query(collection(db,"mainChat"),orderBy("createdAt","asc"),limit(150));state.unsubs.push(onSnapshot(q,snap=>{state.nearBottom=nearBottom(els.messages);state.messagesData=[];els.messages.innerHTML="";snap.forEach(d=>{const m={id:d.id,...d.data()};state.messagesData.push(m);els.messages.appendChild(renderMessage(m,false))});if(state.nearBottom)scrollBottom(els.messages);renderHome();renderSearch()},err=>{console.error(err);toast("Main SPL@SH blocked.")}))}
+function watchFriends(){const q=query(collection(db,"profiles",state.userKey,"friends"),orderBy("createdAt","asc"),limit(200));state.unsubs.push(onSnapshot(q,snap=>{const f={};snap.forEach(d=>f[d.id]=d.data());state.friends=f;renderFriends();renderHome();renderEchoes()}))}
+function watchRequests(){const incoming=query(collection(db,"friendRequests"),where("to","==",state.userKey),limit(100)),outgoing=query(collection(db,"friendRequests"),where("from","==",state.userKey),limit(100));state.unsubs.push(onSnapshot(incoming,snap=>{const r={};snap.forEach(d=>r[d.id]=d.data());state.inReq=r;renderFriends();renderHome()}));state.unsubs.push(onSnapshot(outgoing,snap=>{const r={};snap.forEach(d=>r[d.id]=d.data());state.outReq=r;renderFriends()}))}
+function watchEchoPreviews(){const q=query(collection(db,"privateEchoes"),where("members","array-contains",state.userKey),limit(100));state.unsubs.push(onSnapshot(q,snap=>{const e={};snap.forEach(d=>e[d.id]=d.data());state.echoPreviews=e;renderHome();renderEchoes()}))}
+function watchTyping(){const q=query(collection(db,"typing"),limit(50));state.unsubs.push(onSnapshot(q,snap=>{const t={};snap.forEach(d=>t[d.id]=d.data());state.typing=t;renderTyping()}))}
+function renderTyping(){const active=Object.values(state.typing).filter(t=>t.userKey!==state.userKey&&Date.now()-(t.updatedAt?.toDate?t.updatedAt.toDate().getTime():0)<6500);els.typingLine.textContent=active.length?`${active[0].displayName||"Someone"} is making a splash...`:""}
+function greeting(){const h=new Date().getHours(),p=state.displayName||"SPL@SHER";return `${h<12?"Good Morning":h<18?"Good Afternoon":"Good Evening"}<br>${esc(p)}`}
 function renderHome(){
-  if(!state.userKey)return;
-  let html="";
+  if(!state.userKey)return;els.greeting.innerHTML=greeting();let html="";
   const latest=state.messagesData[state.messagesData.length-1];
-  if(latest)html+=`<div class="activityItem" onclick="window.__goChat()"><div class="avatar">${esc(initials(latest.displayName))}</div><div class="aInfo"><div class="aTitle">Latest Splash from ${esc(latest.displayName||"USER")}</div><div class="aSub">"${esc(String(latest.text||"").slice(0,64))}"</div></div></div>`;
-  if(Object.keys(state.inReq).length)html+=`<div class="activityItem" onclick="window.__goFriends()"><div class="avatar">+</div><div class="aInfo"><div class="aTitle">${Object.keys(state.inReq).length} Friend Request${Object.keys(state.inReq).length>1?"s":""}</div><div class="aSub">Someone wants to make waves with you.</div></div></div>`;
-  Object.values(state.echoPreviews).sort((a,b)=>(b.updatedAt?.seconds||0)-(a.updatedAt?.seconds||0)).slice(0,2).forEach(e=>{
-    const other=e.members.find(x=>x!==state.userKey),p=state.profiles[other]||{};
-    html+=`<div class="activityItem" onclick="window.__openEcho('${esc(other)}')"><div class="avatar">${esc(initials(p.displayName||other))}</div><div class="aInfo"><div class="aTitle">Recent Echo with ${esc(p.displayName||other?.toUpperCase()||"USER")}</div><div class="aSub">${esc(e.lastText||"Private Echo")}</div></div></div>`;
-  });
-  Object.values(state.profiles).filter(isOnline).slice(0,4).forEach(p=>{html+=`<div class="activityItem" onclick="window.__openProfile('${esc(p.userKey)}')"><div class="avatar">${esc(initials(p.displayName))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName)} is making waves.</div><div class="aSub">${esc(p.bio||"At the shore.")}</div></div><div class="onlineDot on"></div></div>`});
+  if(latest)html+=`<div class="activityItem" onclick="window.__goChat()"><div class="avatar">${esc(initials(latest.displayName))}</div><div class="aInfo"><div class="aTitle">Newest Splash from ${esc(latest.displayName||"USER")}</div><div class="aSub">"${esc(String(latest.text||"").slice(0,64))}"</div></div><span class="badge">LIVE</span></div>`;
+  if(Object.keys(state.inReq).length)html+=`<div class="activityItem unread" onclick="window.__goFriends()"><div class="avatar">+</div><div class="aInfo"><div class="aTitle">${Object.keys(state.inReq).length} Friend Request${Object.keys(state.inReq).length>1?"s":""}</div><div class="aSub">Someone wants to make waves with you.</div></div><span class="badge">NEW</span></div>`;
+  Object.values(state.echoPreviews).sort((a,b)=>(b.updatedAt?.seconds||0)-(a.updatedAt?.seconds||0)).slice(0,2).forEach(e=>{const other=e.members.find(x=>x!==state.userKey),p=state.profiles[other]||{};html+=`<div class="activityItem" onclick="window.__openEcho('${esc(other)}')"><div class="avatar">${esc(initials(p.displayName||other))}</div><div class="aInfo"><div class="aTitle">Recent Echo with ${esc(p.displayName||other?.toUpperCase()||"USER")}</div><div class="aSub">${esc(e.lastText||"Private Echo")}</div></div></div>`});
+  Object.values(state.profiles).filter(isOnline).slice(0,4).forEach(p=>{html+=`<div class="activityItem" onclick="window.__openProfile('${esc(p.userKey)}')"><div class="avatar">${esc(initials(p.displayName))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName)} is making waves.</div><div class="aSub">${esc(p.statusEmoji||"🌊")} ${esc(p.status||"Making Waves")} • ${esc(p.bio||"At the shore.")}</div></div><div class="onlineDot on"></div></div>`});
   els.activityList.innerHTML=html||`<div class="activityItem"><div class="avatar">🌊</div><div class="aInfo"><div class="aTitle">Welcome to the shore.</div><div class="aSub">Start with Main SPL@SH or add a friend.</div></div></div>`;
 }
-window.__goChat=()=>showScreen("chat"); window.__goFriends=()=>showScreen("friends"); window.__openProfile=k=>openProfile(k); window.__openEcho=k=>openEcho(k);
-function reqId(from,to){return `${from}_${to}`}
-function friendStatus(key){
-  if(key===state.userKey)return"self";
-  if(state.friends[key])return"friend";
-  if(state.inReq[reqId(key,state.userKey)])return"incoming";
-  if(state.outReq[reqId(state.userKey,key)])return"outgoing";
-  return"none";
-}
-async function sendFriendRequest(key){
-  key=makeUserKey(key); if(!key||key===state.userKey)return toast("Choose another SPL@SHER.");
-  const p=await getDoc(doc(db,"profiles",key)); if(!p.exists())return toast("No SPL@SHER found.");
-  await setDoc(doc(db,"friendRequests",reqId(state.userKey,key)),{from:state.userKey,to:key,createdAt:serverTimestamp()});
-  toast("Friend request sent.");
-}
-async function acceptFriend(from){
-  const me=state.userKey;
-  await setDoc(doc(db,"profiles",me,"friends",from),{userKey:from,favorite:false,createdAt:serverTimestamp()});
-  await setDoc(doc(db,"profiles",from,"friends",me),{userKey:me,favorite:false,createdAt:serverTimestamp()});
-  await deleteDoc(doc(db,"friendRequests",reqId(from,me)));
-  await updateFriendCounts(me); await updateFriendCounts(from);
-  toast("Friend added.");
-}
+window.__goChat=()=>showScreen("chat");window.__goFriends=()=>showScreen("friends");window.__openProfile=k=>openProfile(k);window.__openEcho=k=>openEcho(k);
+function reqId(from,to){return`${from}_${to}`}function friendStatus(key){if(key===state.userKey)return"self";if(state.friends[key])return"friend";if(state.inReq[reqId(key,state.userKey)])return"incoming";if(state.outReq[reqId(state.userKey,key)])return"outgoing";return"none"}
+async function sendFriendRequest(key){key=makeUserKey(key);if(!key||key===state.userKey)return toast("Choose another SPL@SHER.");const p=await getDoc(doc(db,"profiles",key));if(!p.exists())return toast("No SPL@SHER found.");await setDoc(doc(db,"friendRequests",reqId(state.userKey,key)),{from:state.userKey,to:key,createdAt:serverTimestamp()});await addActivity(`${state.displayName} sent a friend request.`,"friend");toast("Friend request sent.");haptic(10)}
+async function acceptFriend(from){const me=state.userKey;await setDoc(doc(db,"profiles",me,"friends",from),{userKey:from,favorite:false,createdAt:serverTimestamp()});await setDoc(doc(db,"profiles",from,"friends",me),{userKey:me,favorite:false,createdAt:serverTimestamp()});await deleteDoc(doc(db,"friendRequests",reqId(from,me)));await updateFriendCounts(me);await updateFriendCounts(from);await addActivity(`${state.displayName} accepted a friend request.`,"friend");toast("Friend added.");haptic(18)}
 async function declineFriend(from){await deleteDoc(doc(db,"friendRequests",reqId(from,state.userKey)));toast("Request declined.")}
 async function cancelRequest(to){await deleteDoc(doc(db,"friendRequests",reqId(state.userKey,to)));toast("Request canceled.")}
-async function removeFriend(key){
-  await deleteDoc(doc(db,"profiles",state.userKey,"friends",key));
-  await deleteDoc(doc(db,"profiles",key,"friends",state.userKey));
-  await updateFriendCounts(state.userKey); await updateFriendCounts(key);
-  toast("Friend removed.");
-}
-async function toggleFavorite(key){
-  const f=state.friends[key]; if(!f)return;
-  await setDoc(doc(db,"profiles",state.userKey,"friends",key),{favorite:!f.favorite},{merge:true});
-}
-async function updateFriendCounts(key){
-  const count=key===state.userKey?Object.keys(state.friends).length:null;
-  if(count!==null)await setDoc(doc(db,"profiles",key),{friendsCount:count},{merge:true});
-}
-function renderFriends(){
-  const prof=state.profiles, friends=Object.values(state.friends).map(f=>prof[f.userKey]).filter(Boolean);
-  const fav=friends.filter(p=>state.friends[p.userKey]?.favorite);
-  const online=friends.filter(p=>!state.friends[p.userKey]?.favorite&&isOnline(p));
-  const offline=friends.filter(p=>!state.friends[p.userKey]?.favorite&&!isOnline(p));
-  let html=`<div class="groupTitle">Requests</div>`;
-  const incoming=Object.values(state.inReq);
-  html+=incoming.length?incoming.map(r=>requestRow(r)).join(""):placeholder("No friend requests.");
-  html+=`<div class="groupTitle">★ Favorites</div>`+(fav.length?fav.map(friendRow).join(""):placeholder("Favorite friends appear here."));
-  html+=`<div class="groupTitle">🌊 Making Waves</div>`+(online.length?online.map(friendRow).join(""):placeholder("No friends making waves."));
-  html+=`<div class="groupTitle">🌙 Drifting / Offline</div>`+(offline.length?offline.map(friendRow).join(""):placeholder("No drifting friends."));
-  html+=`<div class="groupTitle">Discover SPL@SHERS</div>`;
-  const discover=Object.values(prof).filter(p=>p.userKey!==state.userKey&&!state.friends[p.userKey]).slice(0,12);
-  html+=discover.length?discover.map(friendRow).join(""):placeholder("No new SPL@SHERS yet.");
-  els.friendsList.innerHTML=html;
-  els.friendsList.querySelectorAll("[data-profile]").forEach(b=>b.onclick=()=>openProfile(b.dataset.profile));
-  els.friendsList.querySelectorAll("[data-accept]").forEach(b=>b.onclick=()=>acceptFriend(b.dataset.accept));
-  els.friendsList.querySelectorAll("[data-decline]").forEach(b=>b.onclick=()=>declineFriend(b.dataset.decline));
-}
+async function removeFriend(key){await deleteDoc(doc(db,"profiles",state.userKey,"friends",key));await deleteDoc(doc(db,"profiles",key,"friends",state.userKey));await updateFriendCounts(state.userKey);await updateFriendCounts(key);toast("Friend removed.")}
+async function toggleFavorite(key){const f=state.friends[key];if(!f)return;await setDoc(doc(db,"profiles",state.userKey,"friends",key),{favorite:!f.favorite},{merge:true});toast(f.favorite?"Removed favorite.":"Favorited.");haptic(8)}
+async function updateFriendCounts(key){if(key===state.userKey)await setDoc(doc(db,"profiles",key),{friendsCount:Object.keys(state.friends).length},{merge:true})}
+function renderFriends(){const prof=state.profiles,friends=Object.values(state.friends).map(f=>prof[f.userKey]).filter(Boolean),fav=friends.filter(p=>state.friends[p.userKey]?.favorite),online=friends.filter(p=>!state.friends[p.userKey]?.favorite&&isOnline(p)),offline=friends.filter(p=>!state.friends[p.userKey]?.favorite&&!isOnline(p));let html=`<div class="groupTitle">Requests</div>`;const incoming=Object.values(state.inReq);html+=incoming.length?incoming.map(requestRow).join(""):placeholder("No friend requests.");html+=`<div class="groupTitle">★ Favorites</div>`+(fav.length?fav.map(friendRow).join(""):placeholder("Favorite friends appear here."));html+=`<div class="groupTitle">🌊 Making Waves</div>`+(online.length?online.map(friendRow).join(""):placeholder("No friends making waves."));html+=`<div class="groupTitle">🌙 Drifting / Offline</div>`+(offline.length?offline.map(friendRow).join(""):placeholder("No drifting friends."));html+=`<div class="groupTitle">Discover SPL@SHERS</div>`;const discover=Object.values(prof).filter(p=>p.userKey!==state.userKey&&!state.friends[p.userKey]).slice(0,12);html+=discover.length?discover.map(friendRow).join(""):placeholder("No new SPL@SHERS yet.");els.friendsList.innerHTML=html;els.friendsList.querySelectorAll("[data-profile]").forEach(b=>b.onclick=()=>openProfile(b.dataset.profile));els.friendsList.querySelectorAll("[data-accept]").forEach(b=>b.onclick=()=>acceptFriend(b.dataset.accept));els.friendsList.querySelectorAll("[data-decline]").forEach(b=>b.onclick=()=>declineFriend(b.dataset.decline))}
 function placeholder(t){return`<div class="friendRow"><div class="avatar">~</div><div class="aInfo"><div class="aTitle">${esc(t)}</div><div class="aSub">CH@-SPL@SH</div></div></div>`}
-function requestRow(r){const p=state.profiles[r.from]||{};return`<div class="requestRow"><div class="avatar">${esc(initials(p.displayName||r.from))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName||r.from?.toUpperCase())} sent a request</div><div class="aSub">Wants to make waves with you.</div></div><button class="tinyBtn" data-accept="${esc(r.from)}">ACCEPT</button><button class="tinyBtn" data-decline="${esc(r.from)}">NO</button></div>`}
-function friendRow(p){const f=state.friends[p.userKey];return`<div class="friendRow" data-profile="${esc(p.userKey)}"><div class="avatar">${esc(initials(p.displayName))}</div><div class="aInfo"><div class="aTitle">${f?.favorite?"★ ":""}${esc(p.displayName||p.userKey)}</div><div class="aSub">${isOnline(p)?"Making Waves":"Drifting"} • ${esc(p.favoriteEmoji||"🌊")} • ${Number(p.messageCount||0)} splashes</div></div><div class="onlineDot ${isOnline(p)?"on":""}"></div></div>`}
-function renderEchoes(){
-  let html="";
-  const threads=Object.values(state.echoPreviews).sort((a,b)=>(b.updatedAt?.seconds||0)-(a.updatedAt?.seconds||0));
-  html+=threads.length?threads.map(e=>{
-    const other=e.members.find(x=>x!==state.userKey),p=state.profiles[other]||{};
-    return`<div class="echoRow" data-echo="${esc(other)}"><div class="avatar">${esc(initials(p.displayName||other))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName||other?.toUpperCase()||"USER")}</div><div class="aSub">${esc(e.lastText||"Private Echo")}</div></div><div class="onlineDot ${isOnline(p)?"on":""}"></div></div>`;
-  }).join(""):placeholder("No Private Echoes yet. Open a friend card and tap ECHO.");
-  const friendKeys=Object.keys(state.friends).filter(k=>!threads.some(t=>t.members?.includes(k)));
-  if(friendKeys.length){html+=`<div class="groupTitle">Start an Echo</div>`+friendKeys.map(k=>{const p=state.profiles[k]||{};return`<div class="echoRow" data-echo="${esc(k)}"><div class="avatar">${esc(initials(p.displayName||k))}</div><div class="aInfo"><div class="aTitle">Echo ${esc(p.displayName||k.toUpperCase())}</div><div class="aSub">Start a private conversation.</div></div></div>`}).join("")}
-  els.echoList.innerHTML=html; els.echoList.querySelectorAll("[data-echo]").forEach(b=>b.onclick=()=>openEcho(b.dataset.echo));
-}
-function openEcho(other){
-  if(!other||!state.profiles[other])return toast("SPL@SHER not found.");
-  state.currentEcho=other; const p=state.profiles[other];
-  els.privateTitle.textContent=`ECHO ${p.displayName||other.toUpperCase()}`; els.privateSub.textContent=isOnline(p)?"Making Waves":"Drifting";
-  showScreen("private"); watchPrivateMessages(other);
-}
-function watchPrivateMessages(other){
-  if(state.privateUnsub)state.privateUnsub();
-  const id=threadId(state.userKey,other);
-  const q=query(collection(db,"privateEchoes",id,"messages"),orderBy("createdAt","asc"),limit(150));
-  state.privateUnsub=onSnapshot(q,snap=>{
-    els.privateMessages.innerHTML="";
-    snap.forEach(d=>els.privateMessages.appendChild(renderMessage({id:d.id,...d.data()},true)));
-    scrollBottom(els.privateMessages);
-  });
-}
-async function sendPrivate(e){
-  e.preventDefault();
-  const other=state.currentEcho,text=els.privateInput.value.trim();
-  if(!other||!text)return; if(!rateOK())return;
-  els.privateInput.value="";
-  const id=threadId(state.userKey,other);
-  await setDoc(doc(db,"privateEchoes",id),{members:[state.userKey,other],lastText:text,lastFrom:state.userKey,updatedAt:serverTimestamp()},{merge:true});
-  await addDoc(collection(db,"privateEchoes",id,"messages"),{userKey:state.userKey,displayName:state.displayName,text,createdAt:serverTimestamp(),reactions:{}});
-  await setDoc(doc(db,"profiles",state.userKey),{privateEchoCount:Number(state.profile?.privateEchoCount||0)+1},{merge:true});
-  pulseSound();
-}
+function requestRow(r){const p=state.profiles[r.from]||{};return`<div class="requestRow unread"><div class="avatar">${esc(initials(p.displayName||r.from))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName||r.from?.toUpperCase())} sent a request</div><div class="aSub">Wants to make waves with you.</div></div><button class="tinyBtn" data-accept="${esc(r.from)}">ACCEPT</button><button class="tinyBtn" data-decline="${esc(r.from)}">NO</button></div>`}
+function friendRow(p){const f=state.friends[p.userKey];return`<div class="friendRow" data-profile="${esc(p.userKey)}"><div class="avatar">${esc(initials(p.displayName))}</div><div class="aInfo"><div class="aTitle">${f?.favorite?"★ ":""}${esc(p.displayName||p.userKey)}</div><div class="aSub">${isOnline(p)?"Making Waves":"Drifting"} • ${esc(p.statusEmoji||p.favoriteEmoji||"🌊")} ${esc(p.status||"")}</div></div><div class="onlineDot ${isOnline(p)?"on":""}"></div></div>`}
+function renderEchoes(){let html="";const threads=Object.values(state.echoPreviews).sort((a,b)=>(b.updatedAt?.seconds||0)-(a.updatedAt?.seconds||0));html+=threads.length?threads.map(e=>{const other=e.members.find(x=>x!==state.userKey),p=state.profiles[other]||{};return`<div class="echoRow" data-echo="${esc(other)}"><div class="avatar">${esc(initials(p.displayName||other))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName||other?.toUpperCase()||"USER")}</div><div class="aSub">${esc(e.lastText||"Private Echo")}</div></div><div class="onlineDot ${isOnline(p)?"on":""}"></div></div>`}).join(""):placeholder("No Private Echoes yet. Open a friend card and tap ECHO.");const friendKeys=Object.keys(state.friends).filter(k=>!threads.some(t=>t.members?.includes(k)));if(friendKeys.length){html+=`<div class="groupTitle">Start an Echo</div>`+friendKeys.map(k=>{const p=state.profiles[k]||{};return`<div class="echoRow" data-echo="${esc(k)}"><div class="avatar">${esc(initials(p.displayName||k))}</div><div class="aInfo"><div class="aTitle">Echo ${esc(p.displayName||k.toUpperCase())}</div><div class="aSub">Start a private conversation.</div></div></div>`}).join("")}els.echoList.innerHTML=html;els.echoList.querySelectorAll("[data-echo]").forEach(b=>b.onclick=()=>openEcho(b.dataset.echo))}
+function openEcho(other){if(!other||!state.profiles[other])return toast("SPL@SHER not found.");state.currentEcho=other;const p=state.profiles[other];els.privateTitle.textContent=`ECHO ${p.displayName||other.toUpperCase()}`;els.privateSub.textContent=isOnline(p)?"Making Waves":"Drifting";showScreen("private");watchPrivateMessages(other)}
+function watchPrivateMessages(other){if(state.privateUnsub)state.privateUnsub();const id=threadId(state.userKey,other),q=query(collection(db,"privateEchoes",id,"messages"),orderBy("createdAt","asc"),limit(150));state.privateUnsub=onSnapshot(q,snap=>{els.privateMessages.innerHTML="";snap.forEach(d=>els.privateMessages.appendChild(renderMessage({id:d.id,...d.data()},true)));scrollBottom(els.privateMessages)})}
+async function sendPrivate(e){e.preventDefault();const other=state.currentEcho,text=els.privateInput.value.trim();if(!other||!text)return;if(!rateOK())return;els.privateInput.value="";const id=threadId(state.userKey,other);await setDoc(doc(db,"privateEchoes",id),{members:[state.userKey,other],lastText:text,lastFrom:state.userKey,updatedAt:serverTimestamp()},{merge:true});await addDoc(collection(db,"privateEchoes",id,"messages"),{userKey:state.userKey,displayName:state.displayName,text,createdAt:serverTimestamp(),reactions:{}});await setDoc(doc(db,"profiles",state.userKey),{privateEchoCount:Number(state.profile?.privateEchoCount||0)+1},{merge:true});pulseSound();haptic(8)}
 function renderMyProfile(){if(state.profile)els.myProfileCard.innerHTML=profileHTML(state.profile,true)}
-function profileHTML(p,mine=false){
-  const online=isOnline(p),status=friendStatus(p.userKey);
-  let action="";
-  if(mine)action=`<button class="primary" onclick="window.__editProfile()">EDIT</button><button class="primary" onclick="window.__toast('This is your Splash Card.')">MINE</button>`;
-  else if(status==="friend")action=`<button class="primary" onclick="window.__openEcho('${p.userKey}')">ECHO</button><button class="primary" onclick="window.__favorite('${p.userKey}')">${state.friends[p.userKey]?.favorite?"UNFAV":"FAVORITE"}</button><button class="primary danger" onclick="window.__removeFriend('${p.userKey}')">REMOVE</button>`;
-  else if(status==="incoming")action=`<button class="primary" onclick="window.__accept('${p.userKey}')">ACCEPT</button><button class="primary danger" onclick="window.__decline('${p.userKey}')">DECLINE</button>`;
-  else if(status==="outgoing")action=`<button class="primary danger" onclick="window.__cancel('${p.userKey}')">CANCEL REQUEST</button>`;
-  else action=`<button class="primary" onclick="window.__addFriend('${p.userKey}')">ADD FRIEND</button><button class="primary" onclick="window.__openEcho('${p.userKey}')">ECHO</button>`;
-  return `<div class="profileInner"><div class="profileTop"><div class="bigAvatar">${esc(initials(p.displayName))}</div><div><div class="profileName">${esc(p.displayName||p.userKey)}</div><div class="statusText">${online?"🌊 Making Waves":"🌙 Drifting"}</div><div class="who">@${esc(p.userKey||"")}</div></div></div><div class="bioBox">${esc(p.bio||"At the shore.")}</div><div class="stats"><div class="stat"><b>${Number(p.messageCount||0)}</b><span>Splashes</span></div><div class="stat"><b>${Number(p.ripplesReceived||0)}</b><span>Ripples</span></div><div class="stat"><b>${Number(p.friendsCount||0)}</b><span>Friends</span></div><div class="stat"><b>${esc(p.favoriteEmoji||"🌊")}</b><span>Favorite Emoji</span></div><div class="stat"><b>${esc(dateOf(p.createdAt))}</b><span>Joined</span></div><div class="stat"><b>${online?"Now":"Away"}</b><span>Status</span></div></div><div class="profileActions">${action}</div></div>`;
-}
+function profileHTML(p,mine=false){const online=isOnline(p),status=friendStatus(p.userKey);let action="";if(mine)action=`<button class="primary" onclick="window.__editProfile()">EDIT</button><button class="primary" onclick="window.__toast('This is your Splash Card.')">MINE</button>`;else if(status==="friend")action=`<button class="primary" onclick="window.__openEcho('${p.userKey}')">ECHO</button><button class="primary" onclick="window.__favorite('${p.userKey}')">${state.friends[p.userKey]?.favorite?"UNFAV":"FAVORITE"}</button><button class="primary danger" onclick="window.__removeFriend('${p.userKey}')">REMOVE</button>`;else if(status==="incoming")action=`<button class="primary" onclick="window.__accept('${p.userKey}')">ACCEPT</button><button class="primary danger" onclick="window.__decline('${p.userKey}')">DECLINE</button>`;else if(status==="outgoing")action=`<button class="primary danger" onclick="window.__cancel('${p.userKey}')">CANCEL REQUEST</button>`;else action=`<button class="primary" onclick="window.__addFriend('${p.userKey}')">ADD FRIEND</button><button class="primary" onclick="window.__openEcho('${p.userKey}')">ECHO</button>`;return`<div class="profileInner"><div class="profileTop"><div class="bigAvatar" style="background:${esc(p.accent||'linear-gradient(135deg,var(--aqua),var(--violet))')}">${esc(initials(p.displayName))}</div><div><div class="profileName">${esc(p.displayName||p.userKey)}</div><div class="statusText">${online?"🌊":"🌙"} ${esc(p.status||"Making Waves")}</div><div class="who">@${esc(p.userKey||"")}</div></div></div><div class="bioBox">${esc(p.bio||"At the shore.")}</div><div class="stats"><div class="stat"><b>${Number(p.messageCount||0)}</b><span>Splashes</span></div><div class="stat"><b>${Number(p.ripplesReceived||0)}</b><span>Ripples</span></div><div class="stat"><b>${Number(p.friendsCount||0)}</b><span>Friends</span></div><div class="stat"><b>${esc(p.favoriteEmoji||"🌊")}</b><span>Favorite Emoji</span></div><div class="stat"><b>${esc(dateOf(p.createdAt))}</b><span>Joined</span></div><div class="stat"><b>${Number(p.privateEchoCount||0)}</b><span>Echoes</span></div></div><div class="profileActions">${action}</div></div>`}
 function openProfile(key){const p=state.profiles[key];if(!p)return;els.modalTitle.textContent="SPL@SH CARD";els.modalBody.innerHTML=`<div class="profileCard">${profileHTML(p,key===state.userKey)}</div>`;els.modal.classList.add("on")}
-window.__toast=toast; window.__editProfile=editProfile; window.__addFriend=sendFriendRequest; window.__accept=acceptFriend; window.__decline=declineFriend; window.__cancel=cancelRequest; window.__removeFriend=removeFriend; window.__favorite=toggleFavorite;
-function renderMessage(m,priv=false){
-  const mine=m.userKey===state.userKey,div=document.createElement("div");
-  div.className="msg "+(m.system?"sys":mine?"me":"other"); div.dataset.id=m.id;
-  if(m.system){div.textContent=m.text;return div}
-  const quote=m.replyTo?`<div class="quote"><b>${esc(m.replyTo.displayName||"USER")}:</b> ${esc(String(m.replyTo.text||"").slice(0,90))}</div>`:"";
-  div.innerHTML=`<div class="meta"><span class="name">${esc(m.displayName||"USER")}</span><span class="time">${esc(timeOf(m.createdAt))}</span></div>${quote}<div class="text">${linkify(m.text||"")}</div>${renderReactions(m.reactions||{})}${priv?"":`<div class="msgTools"><button class="tinyBtn replyBtn" type="button">ECHO</button><button class="tinyBtn reactOpen" type="button">RIPPLE</button></div>`}`;
-  div.querySelector(".name").onclick=()=>openProfile(m.userKey);
-  if(!priv){div.querySelector(".replyBtn").onclick=e=>{e.stopPropagation();setReply(m)};div.querySelector(".reactOpen").onclick=e=>{e.stopPropagation();showReactions(m.id,div)}}
-  return div;
-}
+window.__toast=toast;window.__editProfile=editProfile;window.__addFriend=sendFriendRequest;window.__accept=acceptFriend;window.__decline=declineFriend;window.__cancel=cancelRequest;window.__removeFriend=removeFriend;window.__favorite=toggleFavorite;
+function renderMessage(m,priv=false){const mine=m.userKey===state.userKey,div=document.createElement("div");div.className="msg "+(m.system?"sys":mine?"me":"other");div.dataset.id=m.id;if(m.system){div.textContent=m.text;return div}const quote=m.replyTo?`<div class="quote"><b>${esc(m.replyTo.displayName||"USER")}:</b> ${esc(String(m.replyTo.text||"").slice(0,90))}</div>`:"";div.innerHTML=`<div class="meta"><span class="name">${esc(m.displayName||"USER")}</span><span class="time">${esc(timeOf(m.createdAt))}</span></div>${quote}<div class="text">${linkify(m.text||"")}</div>${renderReactions(m.reactions||{})}${priv?"":`<div class="msgTools"><button class="tinyBtn replyBtn" type="button">ECHO</button><button class="tinyBtn reactOpen" type="button">RIPPLE</button></div>`}`;div.querySelector(".name").onclick=()=>openProfile(m.userKey);if(!priv){div.querySelector(".replyBtn").onclick=e=>{e.stopPropagation();setReply(m)};div.querySelector(".reactOpen").onclick=e=>{e.stopPropagation();showReactions(m.id,div)}}return div}
 function renderReactions(reactions){const parts=[];for(const emoji of EMOJIS){const list=Array.isArray(reactions[emoji])?reactions[emoji]:[];if(list.length)parts.push(`<span class="reactChip">${emoji} ${list.length}</span>`)}return parts.length?`<div class="reacts">${parts.join("")}</div>`:`<div class="reacts"></div>`}
 function setReply(m){state.reply={id:m.id,displayName:m.displayName||"USER",text:String(m.text||"").slice(0,120)};els.replyText.textContent=`Echoing ${state.reply.displayName}: ${state.reply.text}`;els.replyBar.classList.add("on");els.msg.focus()}
 function clearReply(){state.reply=null;els.replyBar.classList.remove("on")}
-function showReactions(id,node){
-  els.reactPop.innerHTML="";EMOJIS.forEach(emoji=>{const b=document.createElement("button");b.className="reactBtn";b.textContent=emoji;b.onclick=()=>toggleReaction(id,emoji);els.reactPop.appendChild(b)});
-  const r=node.getBoundingClientRect();els.reactPop.style.left=Math.min(window.innerWidth-220,Math.max(8,r.left+12))+"px";els.reactPop.style.top=Math.max(82,r.top-46)+"px";els.reactPop.classList.add("on");
-}
-async function toggleReaction(id,emoji){
-  els.reactPop.classList.remove("on");const ref=doc(db,"mainChat",id);
-  try{
-    let targetUser=null,added=false;
-    await runTransaction(db,async tx=>{
-      const snap=await tx.get(ref);if(!snap.exists())return;
-      const data=snap.data(),reactions=data.reactions||{},list=Array.isArray(reactions[emoji])?[...reactions[emoji]]:[];
-      targetUser=data.userKey;const i=list.indexOf(state.userKey);
-      if(i>=0){list.splice(i,1);added=false}else{list.push(state.userKey);added=true}
-      reactions[emoji]=list;tx.update(ref,{reactions});
-    });
-    if(added&&targetUser&&targetUser!==state.userKey){
-      const p=state.profiles[targetUser]||{};
-      await setDoc(doc(db,"profiles",targetUser),{ripplesReceived:Number(p.ripplesReceived||0)+1},{merge:true});
-    }
-    pulseSound();
-  }catch{toast("Ripple failed.")}
-}
-function nearBottom(el){return el.scrollHeight-el.scrollTop-el.clientHeight<90}
-function scrollBottom(el){requestAnimationFrame(()=>{el.scrollTop=el.scrollHeight})}
+function showReactions(id,node){els.reactPop.innerHTML="";EMOJIS.forEach(emoji=>{const b=document.createElement("button");b.className="reactBtn";b.textContent=emoji;b.onclick=()=>toggleReaction(id,emoji);els.reactPop.appendChild(b)});const r=node.getBoundingClientRect();els.reactPop.style.left=Math.min(window.innerWidth-220,Math.max(8,r.left+12))+"px";els.reactPop.style.top=Math.max(82,r.top-46)+"px";els.reactPop.classList.add("on")}
+async function toggleReaction(id,emoji){els.reactPop.classList.remove("on");const ref=doc(db,"mainChat",id);try{let targetUser=null,added=false;await runTransaction(db,async tx=>{const snap=await tx.get(ref);if(!snap.exists())return;const data=snap.data(),reactions=data.reactions||{},list=Array.isArray(reactions[emoji])?[...reactions[emoji]]:[];targetUser=data.userKey;const i=list.indexOf(state.userKey);if(i>=0){list.splice(i,1);added=false}else{list.push(state.userKey);added=true}reactions[emoji]=list;tx.update(ref,{reactions})});if(added&&targetUser&&targetUser!==state.userKey){const p=state.profiles[targetUser]||{};await setDoc(doc(db,"profiles",targetUser),{ripplesReceived:Number(p.ripplesReceived||0)+1},{merge:true})}pulseSound();haptic(8)}catch{toast("Ripple failed.")}}
+function nearBottom(el){return el.scrollHeight-el.scrollTop-el.clientHeight<90}function scrollBottom(el){requestAnimationFrame(()=>{el.scrollTop=el.scrollHeight})}
 function rateOK(){const now=Date.now();if(now-state.lastSend<1100){toast("Easy — tiny cooldown.");return false}state.burst=state.burst.filter(t=>now-t<12000);if(state.burst.length>=7){toast("Slow down for a few seconds.");return false}state.lastSend=now;state.burst.push(now);return true}
-async function sendMessage(e){
-  e.preventDefault();const text=els.msg.value.trim();if(!text||!state.userKey)return;if(!rateOK())return;
-  els.msg.value="";els.send.classList.add("cooldown");
-  try{
-    await addDoc(collection(db,"mainChat"),{userKey:state.userKey,displayName:state.displayName,text,replyTo:state.reply?{id:state.reply.id,displayName:state.reply.displayName,text:state.reply.text}:null,reactions:{},createdAt:serverTimestamp()});
-    clearReply();pulseSound();
-    const uref=doc(db,"profiles",state.userKey);
-    await runTransaction(db,async tx=>{const snap=await tx.get(uref),count=snap.exists()?Number(snap.data().messageCount||0):0;tx.update(uref,{messageCount:count+1,lastSeen:serverTimestamp(),online:true,status:"Making Waves"})});
-  }catch(err){console.error(err);toast("Splash failed.");els.msg.value=text}
-  finally{setTimeout(()=>els.send.classList.remove("cooldown"),600)}
-}
-async function editProfile(){
-  if(!state.profile)return;
-  els.modalTitle.textContent="EDIT SPL@SH CARD";
-  els.modalBody.innerHTML=`<div class="formGrid"><div><div class="label">BIO</div><textarea id="editBio" class="textField" maxlength="120">${esc(state.profile.bio||"")}</textarea></div><div><div class="label">FAVORITE EMOJI</div><input id="editEmoji" class="textField" maxlength="2" value="${esc(state.profile.favoriteEmoji||"🌊")}"></div><button id="saveProfileNow" class="primary">SAVE CARD</button></div>`;
-  els.modal.classList.add("on");
-  $("saveProfileNow").onclick=async()=>{await setDoc(doc(db,"profiles",state.userKey),{bio:$("editBio").value.trim().slice(0,120)||"At the shore.",favoriteEmoji:$("editEmoji").value.trim().slice(0,2)||"🌊"},{merge:true});els.modal.classList.remove("on");toast("Splash card saved.")};
-}
-async function addFriendDialog(){
-  els.modalTitle.textContent="ADD FRIEND";
-  els.modalBody.innerHTML=`<div class="formGrid"><div><div class="label">SPL@SHER USER</div><input id="addUserField" class="field" maxlength="6" placeholder="ADMIN"></div><button id="sendFriendNow" class="primary">SEND REQUEST</button></div>`;
-  els.modal.classList.add("on");
-  $("addUserField").addEventListener("input",()=>{$("addUserField").value=makeUserKey($("addUserField").value).toUpperCase()});
-  $("sendFriendNow").onclick=async()=>{await sendFriendRequest($("addUserField").value);els.modal.classList.remove("on")};
-}
-async function newEchoDialog(){
-  els.modalTitle.textContent="NEW ECHO";
-  const keys=Object.keys(state.friends);
-  els.modalBody.innerHTML=keys.length?keys.map(k=>{const p=state.profiles[k]||{};return`<div class="echoRow" data-echo="${esc(k)}"><div class="avatar">${esc(initials(p.displayName||k))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName||k.toUpperCase())}</div><div class="aSub">Start private Echo</div></div></div>`}).join(""):placeholder("Add a friend first.");
-  els.modal.classList.add("on");
-  els.modalBody.querySelectorAll("[data-echo]").forEach(b=>b.onclick=()=>{els.modal.classList.remove("on");openEcho(b.dataset.echo)});
-}
-async function logout(){
-  await addSystemEvent(`${state.displayName} drifted away.`).catch(()=>{}); await updatePresence(false).catch(()=>{});
-  localStorage.removeItem("cs_userKey");localStorage.removeItem("cs_pin");localStorage.removeItem("cs_displayName");location.reload();
-}
+async function sendMessage(e){e.preventDefault();const text=els.msg.value.trim();if(!text||!state.userKey)return;if(!rateOK())return;els.msg.value="";els.send.classList.add("cooldown");try{await addDoc(collection(db,"mainChat"),{userKey:state.userKey,displayName:state.displayName,text,replyTo:state.reply?{id:state.reply.id,displayName:state.reply.displayName,text:state.reply.text}:null,reactions:{},createdAt:serverTimestamp()});clearReply();pulseSound();haptic(8);const uref=doc(db,"profiles",state.userKey);await runTransaction(db,async tx=>{const snap=await tx.get(uref),count=snap.exists()?Number(snap.data().messageCount||0):0;tx.update(uref,{messageCount:count+1,lastSeen:serverTimestamp(),online:true,status:"Making Waves"})})}catch(err){console.error(err);toast("Splash failed.");els.msg.value=text}finally{setTimeout(()=>els.send.classList.remove("cooldown"),600)}}
+async function editProfile(){if(!state.profile)return;els.modalTitle.textContent="EDIT SPL@SH CARD";els.modalBody.innerHTML=`<div class="formGrid"><div><div class="label">BIO</div><textarea id="editBio" class="textField" maxlength="120">${esc(state.profile.bio||"")}</textarea></div><div><div class="label">FAVORITE EMOJI</div><input id="editEmoji" class="textField" maxlength="2" value="${esc(state.profile.favoriteEmoji||"🌊")}"></div><div><div class="label">STATUS</div><select id="editStatus" class="textField"><option>Making Waves</option><option>Quiet Waters</option><option>Drifting</option><option>Creating</option><option>Listening</option><option>Working</option><option>Away</option></select></div><div><div class="label">ACCENT COLOR</div><input id="editAccent" class="textField" value="${esc(state.profile.accent||"#66ffd8")}"></div><button id="saveProfileNow" class="primary">SAVE CARD</button></div>`;els.modal.classList.add("on");$("editStatus").value=state.profile.status||"Making Waves";$("saveProfileNow").onclick=async()=>{await setDoc(doc(db,"profiles",state.userKey),{bio:$("editBio").value.trim().slice(0,120)||"At the shore.",favoriteEmoji:$("editEmoji").value.trim().slice(0,2)||"🌊",status:$("editStatus").value,accent:$("editAccent").value.trim().slice(0,32)||"#66ffd8"},{merge:true});await addActivity(`${state.displayName} updated their Splash Card.`,"profile");els.modal.classList.remove("on");toast("Splash card saved.");haptic(12)}}
+async function addFriendDialog(){els.modalTitle.textContent="ADD FRIEND";els.modalBody.innerHTML=`<div class="formGrid"><div><div class="label">SPL@SHER USER</div><input id="addUserField" class="field" maxlength="6" placeholder="ADMIN"></div><button id="sendFriendNow" class="primary">SEND REQUEST</button></div>`;els.modal.classList.add("on");$("addUserField").addEventListener("input",()=>{$("addUserField").value=makeUserKey($("addUserField").value).toUpperCase()});$("sendFriendNow").onclick=async()=>{await sendFriendRequest($("addUserField").value);els.modal.classList.remove("on")}}
+async function newEchoDialog(){els.modalTitle.textContent="NEW ECHO";const keys=Object.keys(state.friends);els.modalBody.innerHTML=keys.length?keys.map(k=>{const p=state.profiles[k]||{};return`<div class="echoRow" data-echo="${esc(k)}"><div class="avatar">${esc(initials(p.displayName||k))}</div><div class="aInfo"><div class="aTitle">${esc(p.displayName||k.toUpperCase())}</div><div class="aSub">Start private Echo</div></div></div>`}).join(""):placeholder("Add a friend first.");els.modal.classList.add("on");els.modalBody.querySelectorAll("[data-echo]").forEach(b=>b.onclick=()=>{els.modal.classList.remove("on");openEcho(b.dataset.echo)})}
+async function logout(){await addActivity(`${state.displayName} drifted away.`,"system").catch(()=>{});await updatePresence(false).catch(()=>{});localStorage.removeItem("cs_userKey");localStorage.removeItem("cs_pin");localStorage.removeItem("cs_displayName");location.reload()}
+function renderSearch(){const q=(els.searchInput.value||"").toLowerCase().trim();if(!q){els.searchResults.innerHTML=placeholder("Type to search SPL@SHERS and splashes.");return}let html=`<div class="groupTitle">SPL@SHERS</div>`;const ps=Object.values(state.profiles).filter(p=>(p.displayName||"").toLowerCase().includes(q)||(p.userKey||"").includes(q)||(p.bio||"").toLowerCase().includes(q)).slice(0,10);html+=ps.length?ps.map(friendRow).join(""):placeholder("No SPL@SHERS found.");html+=`<div class="groupTitle">Splashes</div>`;const ms=state.messagesData.filter(m=>(m.text||"").toLowerCase().includes(q)||(m.displayName||"").toLowerCase().includes(q)).slice(0,12);html+=ms.length?ms.map(m=>`<div class="activityItem" onclick="window.__goChat()"><div class="avatar">${esc(initials(m.displayName))}</div><div class="aInfo"><div class="aTitle">${esc(m.displayName||"USER")}</div><div class="aSub">${esc(String(m.text||"").slice(0,80))}</div></div></div>`).join(""):placeholder("No splashes found.");els.searchResults.innerHTML=html;els.searchResults.querySelectorAll("[data-profile]").forEach(b=>b.onclick=()=>openProfile(b.dataset.profile))}
+async function setTyping(){if(!state.userKey)return;await setDoc(doc(db,"typing",state.userKey),{userKey:state.userKey,displayName:state.displayName,updatedAt:serverTimestamp()},{merge:true}).catch(()=>{})}
 document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>showScreen(b.dataset.go));
-els.loginBtn.onclick=claimOrLogin; els.form.onsubmit=sendMessage; els.privateComposer.onsubmit=sendPrivate;
-els.cancelReply.onclick=clearReply; els.logout.onclick=logout; els.homeBtn.onclick=()=>showScreen("home"); els.wavesBtn.onclick=()=>showScreen("friends");
-els.closeModal.onclick=()=>els.modal.classList.remove("on"); els.editProfileBtn.onclick=editProfile; els.profileMiniBtn.onclick=()=>openProfile(state.userKey); els.privateCardBtn.onclick=()=>openProfile(state.currentEcho);
-els.addFriendBtn.onclick=addFriendDialog; els.newEchoBtn.onclick=newEchoDialog; els.saveSettingsBtn.onclick=()=>toast("Settings saved locally.");
+els.loginBtn.onclick=claimOrLogin;els.form.onsubmit=sendMessage;els.privateComposer.onsubmit=sendPrivate;els.cancelReply.onclick=clearReply;els.logout.onclick=logout;els.homeBtn.onclick=()=>showScreen("home");els.wavesBtn.onclick=()=>showScreen("friends");
+els.closeModal.onclick=()=>els.modal.classList.remove("on");els.editProfileBtn.onclick=editProfile;els.profileMiniBtn.onclick=()=>openProfile(state.userKey);els.privateCardBtn.onclick=()=>openProfile(state.currentEcho);
+els.addFriendBtn.onclick=addFriendDialog;els.newEchoBtn.onclick=newEchoDialog;els.saveSettingsBtn.onclick=()=>toast("Settings saved locally.");
 els.soundToggle.onclick=()=>{state.settings.sound=!state.settings.sound;els.soundToggle.classList.toggle("on",state.settings.sound);localStorage.cs_sound=state.settings.sound?"1":"0"};
 els.animToggle.onclick=()=>{state.settings.animations=!state.settings.animations;els.animToggle.classList.toggle("on",state.settings.animations);localStorage.cs_anim=state.settings.animations?"1":"0"};
-els.user.addEventListener("input",()=>{els.user.value=makeUserKey(els.user.value).toUpperCase()});
-els.pin.addEventListener("input",()=>{els.pin.value=String(els.pin.value).replace(/\D/g,"").slice(0,4)});
-els.pin.addEventListener("keydown",e=>{if(e.key==="Enter")claimOrLogin()}); els.user.addEventListener("keydown",e=>{if(e.key==="Enter")els.pin.focus()});
+els.motionToggle.onclick=()=>{state.settings.reduceMotion=!state.settings.reduceMotion;els.motionToggle.classList.toggle("on",state.settings.reduceMotion);localStorage.cs_motion=state.settings.reduceMotion?"1":"0"};
+els.user.addEventListener("input",()=>{els.user.value=makeUserKey(els.user.value).toUpperCase()});els.pin.addEventListener("input",()=>{els.pin.value=String(els.pin.value).replace(/\D/g,"").slice(0,4)});
+els.pin.addEventListener("keydown",e=>{if(e.key==="Enter")claimOrLogin()});els.user.addEventListener("keydown",e=>{if(e.key==="Enter")els.pin.focus()});
+els.msg.addEventListener("input",()=>{clearTimeout(setTyping.t);setTyping.t=setTimeout(setTyping,160)});els.searchInput.addEventListener("input",renderSearch);els.clearSearchBtn.onclick=()=>{els.searchInput.value="";renderSearch()};
 document.addEventListener("click",e=>{if(!e.target.closest("#reactPop")&&!e.target.closest(".reactOpen"))els.reactPop.classList.remove("on")});
 document.addEventListener("touchmove",e=>{if(!e.target.closest("#messages")&&!e.target.closest("#privateMessages")&&!e.target.closest(".scroll")&&!e.target.closest(".sheet"))e.preventDefault()},{passive:false});
 window.addEventListener("beforeunload",()=>{if(state.userKey)updateDoc(doc(db,"profiles",state.userKey),{online:false,lastSeen:serverTimestamp(),status:"Drifting"}).catch(()=>{})});
-state.settings.sound=localStorage.cs_sound==="1"; state.settings.animations=localStorage.cs_anim!=="0";
-els.soundToggle.classList.toggle("on",state.settings.sound); els.animToggle.classList.toggle("on",state.settings.animations);
+state.settings.sound=localStorage.cs_sound==="1";state.settings.animations=localStorage.cs_anim!=="0";state.settings.reduceMotion=localStorage.cs_motion==="1";
+els.soundToggle.classList.toggle("on",state.settings.sound);els.animToggle.classList.toggle("on",state.settings.animations);els.motionToggle.classList.toggle("on",state.settings.reduceMotion);
 if(state.userKey&&state.pin){els.user.value=state.userKey.toUpperCase();els.pin.value=state.pin}
 </script>
 </body>
